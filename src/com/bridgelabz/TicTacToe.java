@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    public static Scanner scanner = new Scanner(System.in);
     static char[] board = new char[10];
     static char player,computer;
-    public static Scanner scanner = new Scanner(System.in);
+    public static int playLocation;
 
     static void createBoard(){
         for(int index = 1 ; index<10 ; index++) {
@@ -33,12 +34,24 @@ public class TicTacToe {
         System.out.println("  " + board[7] + "  |  " + board[8]  + "   | " + board[9] + "  ");
     }
 
+    public static void userMove() {
+        System.out.println("Enter Location 1-9 to Make Move");
+        playLocation = scanner.nextInt();
+        if (playLocation < 10 && playLocation > 0) {
+            board[playLocation] = player;
+            showBoard();
+        } else {
+            System.out.println("Invalid Choice");
+        }
+    }
+
     public static void main(String[] args) {
 
         System.out.println("----- Welcome To The Game Of Tic Tac Toe -----");
         createBoard();
         getPlayerChoice();
         showBoard();
+        userMove();
 
     }
 
