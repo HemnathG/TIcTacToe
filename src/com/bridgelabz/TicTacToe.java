@@ -29,19 +29,31 @@ public class TicTacToe {
     }
 
     static void showBoard() {
+        System.out.println();
         System.out.println("  " + board[1] + "  |  " + board[2]  + "   | " + board[3] + "  ");
+        System.out.println("------------------");
         System.out.println("  " + board[4] + "  |  " + board[5]  + "   | " + board[6] + "  ");
+        System.out.println("------------------");
         System.out.println("  " + board[7] + "  |  " + board[8]  + "   | " + board[9] + "  ");
     }
 
     public static void userMove() {
         System.out.println("Enter Location 1-9 to Make Move");
         playLocation = scanner.nextInt();
-        if (playLocation < 10 && playLocation > 0) {
+        scanner.nextLine();
+        if (isEmpty() && playLocation < 10 && playLocation > 0) {
             board[playLocation] = player;
             showBoard();
         } else {
             System.out.println("Invalid Choice");
+        }
+    }
+
+    public static boolean isEmpty() {
+        if (board[playLocation] == ' ') {
+            return true;
+        } else {
+            return false;
         }
     }
 
