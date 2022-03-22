@@ -9,6 +9,7 @@ public class TicTacToe {
     static char[] board = new char[10];
     static char player,computer;
     public static int playLocation;
+    public static int tossResult;
 
     static void createBoard(){
         for(int index = 1 ; index<10 ; index++) {
@@ -38,6 +39,7 @@ public class TicTacToe {
     }
 
     public static void userMove() {
+        showBoard();
         System.out.println("Enter Location 1-9 to Make Move");
         playLocation = scanner.nextInt();
         scanner.nextLine();
@@ -57,12 +59,25 @@ public class TicTacToe {
         }
     }
 
+    public static void checkToss() {
+
+        double tossResult = Math.floor(Math.random() * 10) % 2;
+        //System.out.println("Random Toss Value :"+tossResult);
+        System.out.println("Choose 1 for Heads or 2 for Tails");
+        int coinSelect = scanner.nextInt();
+        if (coinSelect == tossResult) {
+            System.out.println("Player Won The Toss! Player Starts");
+        } else {
+            System.out.println("Computer Won The Toss! Computer Starts");
+        }
+    }
+
     public static void main(String[] args) {
 
         System.out.println("----- Welcome To The Game Of Tic Tac Toe -----");
         createBoard();
         getPlayerChoice();
-        showBoard();
+        checkToss();
         userMove();
 
     }
