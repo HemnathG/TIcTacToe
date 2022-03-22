@@ -1,20 +1,40 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+
 public class TicTacToe {
 
-    char[] board = new char[10];
+    static char[] board = new char[10];
+    static char player,computer;
+    public static Scanner scanner = new Scanner(System.in);
 
-    public void cb(){
-        for (int i=1; i<board.length;i++)
-        {
-            board[i]=' ';
-
+    static void createBoard(){
+        for(int index = 1 ; index<10 ; index++) {
+            board[index] = ' ';
         }
     }
+
+    static void getPlayerChoice() {
+        System.out.print("select X or O : ");
+        player = Character.toUpperCase(scanner.next().charAt(0));
+
+        if (player == 'X')
+            computer='O';
+        else
+            computer ='X';
+        System.out.println("You have selected : " +player);
+        System.out.println("Computer's choice is : " +computer);
+    }
+
     public static void main(String[] args) {
 
-        TicTacToe ticTacToe = new TicTacToe();
-        ticTacToe.cb();
+        System.out.println("----- Welcome To The Game Of Tic Tac Toe -----");
+        createBoard();
+        getPlayerChoice();
+
 
     }
+
+
 }
+
