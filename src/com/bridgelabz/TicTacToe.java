@@ -2,6 +2,7 @@ package com.bridgelabz;
 
 import java.util.Scanner;
 
+
 public class TicTacToe {
 
     static char[] board = new char[10];
@@ -37,4 +38,3 @@ public class TicTacToe {
 
 
 }
-
