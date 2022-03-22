@@ -2,19 +2,13 @@ package com.bridgelabz;
 
 public class TicTacToe {
 
-    char[] board = new char[10];
+    public static void main(String[] args) {
+        System.out.println("*** Welcome to Tic Tac Toe Game ***");
 
-    public void cb(){
-        for (int i=1; i<board.length;i++)
-        {
-            board[i]=' ';
-
+        char[] ticTacBoard = new char[10];
+        for(int index = 0; index < 10; index++) {
+            ticTacBoard[index] = ' ';
         }
     }
-    public static void main(String[] args) {
 
-        TicTacToe ticTacToe = new TicTacToe();
-        ticTacToe.cb();
-
-    }
 }
