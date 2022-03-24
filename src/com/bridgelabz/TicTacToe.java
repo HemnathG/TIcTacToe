@@ -57,17 +57,28 @@ public class TicTacToe {
                 showBoard();
                 break;
             } else {
-                System.out.println("Invalid Choice");
+                System.out.println("Invalid Choice. Please Enter position again.");
 
             }
         }
     }
         public static void computerMove() {
-            System.out.println("\nComputer Is Playing");
+            System.out.println("Computer Is Playing");
             do {
-                playLocation = randomGenerator.nextInt(9) + 1;
-                if(predictWinLocationAndBlock()) {
+                int cornerLocation = randomGenerator.nextInt(4) + 1;
+                if (predictWinLocationAndBlock()) {
                 }
+                else {
+                    if(cornerLocation == 1)
+                        playLocation = 1;
+                    if(cornerLocation == 2)
+                        playLocation = 3;
+                    if(cornerLocation == 3)
+                        playLocation = 7;
+                    if(cornerLocation == 4)
+                        playLocation = 9;
+                }
+
             } while (!isEmpty(playLocation));
             board[playLocation] = computer;
             showBoard();
@@ -270,6 +281,7 @@ public class TicTacToe {
     }
 
     public static boolean isEmpty(int location) {
+
         return board[location] == ' ';
     }
 
