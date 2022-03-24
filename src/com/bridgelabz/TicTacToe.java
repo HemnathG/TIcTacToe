@@ -390,6 +390,11 @@ public class TicTacToe {
         getPlayerChoice();
         checkToss();
         startGame();
+        System.out.println("Press '1' to continue playing, '2' to exit");
+        int userInput = scanner.nextInt();
+        if(userInput ==2) {
+            System.out.println("Thank You for playing. BYE!");
+        }
 
     }
 
