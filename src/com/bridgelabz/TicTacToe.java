@@ -317,7 +317,9 @@ public class TicTacToe {
         int coinSelect = scanner.nextInt();
         if (coinSelect == tossResult) {
             System.out.println("Player Won The Toss! Player Starts");
+            playerWinToss = true;
         } else {
+            playerWinToss = false;
             System.out.println("Computer Won The Toss! Computer Starts");
         }
     }
